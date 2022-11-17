@@ -1,19 +1,14 @@
-import{
-    Entity,Column,PrimaryGeneratedColumn,ManyToOne
-} from "typeorm"
-import { User } from "./user.entity";
+import{Entity,Column,PrimaryGeneratedColumn} from "typeorm"
 
-@Entity("veicule")
-export class Veicule{
+@Entity("account")
+export class Account{
 
     @PrimaryGeneratedColumn("increment")
     id:number;
 
-    @Column()
+    @Column({default:100})
     balance:number;
 
-    @ManyToOne(()=> User,(user)=> user.id)
-    user:User;
     
 
 }

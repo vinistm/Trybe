@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn,OneToMany,JoinTable} from "typeorm";
-import { Veicule } from "./accounts.entity";
+import { Entity, Column, PrimaryGeneratedColumn,OneToOne,JoinColumn} from "typeorm";
+import { Account } from "./accounts.entity";
 @Entity("users")
 
 
@@ -13,9 +13,9 @@ class User{
     @Column()
     password: string
 
-    @OneToMany(() => Veicule,(veicule) => veicule.user)
-    @JoinTable()
-    veicule:Veicule[]
+    @OneToOne(() => Account,(account) => account.id)
+    @JoinColumn()
+    account:Account;
     
 
 }

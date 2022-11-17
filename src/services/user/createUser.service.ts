@@ -28,8 +28,8 @@ const createUserService = async ({ username, password}: IUserRequest) :Promise<I
     await userRepository.save(user)
     
     const userReturn: IUser={
-      id:user.id,
       username:user.username,
+      password: user.password
       
     }
     return userReturn

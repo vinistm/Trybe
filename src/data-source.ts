@@ -2,8 +2,13 @@ import { DataSource } from "typeorm";
     require('dotenv').config()
     
     export const AppDataSource = new DataSource({
-        type: "postgres",
-        url: process.env.DATABASE_URL,
+        type: 'postgres',
+        host: process.env.POSTGRES_HOST,
+        port: 5432,
+        username: 'docker',
+        password: 'postgres',
+        database: 'postgres_db',
+        url: process.env.DB_HOST,
         ssl: process.env.NODE_ENV === "production" ?
             { rejectUnauthorized: false}
             : false,
@@ -15,4 +20,4 @@ import { DataSource } from "typeorm";
         migrations: process.env.NODE_ENV === "production"
             ? ["dist/migrations/*.js"]
             : ["src/migrations/*.ts"],
-    })
+        })

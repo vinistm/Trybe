@@ -5,7 +5,7 @@ import { Account } from "./accounts.entity";
 
 class User{
     @PrimaryGeneratedColumn("increment")
-    id:string
+    id:number;
 
     @Column()
     username:string

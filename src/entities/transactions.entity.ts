@@ -8,11 +8,9 @@ class Transactions{
     id:string
 
     @OneToMany(() => Account,(account) => account.id)
-    @JoinTable()
     debitedAccount:Account
 
     @OneToMany(() => Account,(account) => account.id)
-    @JoinTable()
     creditedAccount:Account
 
     @Column()

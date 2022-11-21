@@ -4,17 +4,13 @@ services:
  
   api_postgres:
     container_name: api_postgres
-    build: .
+    build:
+      dockerfile: Dockerfile
+      context: .
     ports:
-      - 3002:3002
+      - 3000:3000
     environment:
-      - NODE_ENV=dev-postgres
-      - NODE_PORT=3002
-      - DB_HOST=postgres_db
-      - DB_PORT=5432
-      - DB_USER=docker
-      - DB_PASSWORD=postgres
-      - DB=postgres_db
+      - POSTGRES_HOST=postgres_db
     
     depends_on:
       postgres_db:
